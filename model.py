@@ -8,14 +8,6 @@ from settings import MODEL_DIRECTORY, API_KEY
 from AlphaVantageAPI import AlphaVantageAPI
 
 class GarchModel:
-    import os
-    from glob import glob
-
-    import pandas as pd
-    import joblib
-    from arch import arch_model
-    from settings import MODEL_DIRECTORY, API_KEY
-    from AlphaVantageAPI import AlphaVantageAPI
 
     class GarchModel:
         """
@@ -132,7 +124,7 @@ class GarchModel:
 
     def dump(self):
 
-        timestamp = pd.Timestamp.now().isoformat()
+        timestamp = pd.Timestamp.now().isoformat().replace(":", "_")
 
         filepath = os.path.join(self.model_directory, f"{timestamp}_{self.symbol}.pkl")
 
