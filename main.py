@@ -1,42 +1,14 @@
 import sqlite3
 
 from settings import DB_NAME
-from SQLRepository import SQLRepository
+from sqlrepository import SQLRepository
 from fastapi import FastAPI
 from model import GarchModel
-from pydantic import BaseModel
-
-
-class FitInput(BaseModel):
-    symbol: str
-    use_new_data: bool
-    n_observations: int
-    p: int
-    q: int
-
-
-class FitOutput(FitInput):
-    success: bool
-    message: str
-
-
-class PredictInput(BaseModel):
-    symbol: str
-    n_days: int
-
-
-class PredictOut(PredictInput):
-    success: bool
-    forecast: dict
-    message: str
+from fit import FitRequest
+from predict import PredictRequest
 
 
 app = FastAPI()
-
-
-@app.get("/")
-def hello():
-    return {"Hello": "World"}
 
 
 def build_model(symbol, use_new_data):
@@ -50,7 +22,7 @@ def build_model(symbol, use_new_data):
 
 
 @app.post("/fit", status_code=200, response_model=dict)
-def fit_model(request: FitInput):
+def fit_model(request: FitRequest):
     response = request.dict()
 
     try:
@@ -72,7 +44,7 @@ def fit_model(request: FitInput):
 
 
 @app.post("/predict", status_code=200, response_model=dict)
-def get_prediction(request: PredictInput):
+def get_prediction(request: PredictRequest):
     response = request.dict()
 
     try:

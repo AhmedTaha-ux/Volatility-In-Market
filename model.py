@@ -5,7 +5,7 @@ import pandas as pd
 import joblib
 from arch import arch_model
 from settings import MODEL_DIRECTORY, API_KEY
-from AlphaVantageAPI import AlphaVantageAPI
+from alphavantageapi import AlphaVantageAPI
 
 class GarchModel:
 
