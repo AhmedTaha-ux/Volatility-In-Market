@@ -4,9 +4,8 @@ from settings import DB_NAME
 from sqlrepository import SQLRepository
 from fastapi import FastAPI
 from model import GarchModel
-from fit import FitRequest
-from predict import PredictRequest
-
+from fit.FitRequest import FitRequest
+from predict.PredictRequest import PredictRequest
 
 app = FastAPI()
 

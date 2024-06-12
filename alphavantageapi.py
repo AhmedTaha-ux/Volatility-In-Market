@@ -2,6 +2,7 @@ from settings import API_KEY
 import requests
 import pandas as pd
 
+
 class AlphaVantageAPI:
     def __init__(self, api_key=API_KEY):
         self.__api_key = api_key
