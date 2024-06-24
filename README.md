@@ -60,6 +60,6 @@ fastapi dev main.py
    - Creat http request `POST` at `http://127.0.0.1:8008/predict`
    - Send json contains the following:
       * **symbol**: The name of the equity of your choice. For example: `'symbol': 'IBM'`.
-      * **n_days**: The number of days want to predict. For example: `'symbol': 'IBM'`. `'n_days': 5`.
+      * **n_days**: The number of days want to predict. For example: `'n_days': 5`.
 
     
